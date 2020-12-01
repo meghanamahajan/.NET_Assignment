@@ -1,0 +1,149 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Employee
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+          
+            program p1 = new program("Meghana", 123456, 10);
+            p1.GetNetSalary();
+            program p2 = new program("Meghana", 123456);
+            p2.GetNetSalary();
+            program p3 = new program("Meghana");
+            p3.GetNetSalary();
+            program p4 = new program();
+            p4.GetNetSalary();
+            program p5 = new program("Meghana", 526525,- 1);
+            p5.GetNetSalary();
+            Console.WriteLine(p1.Empno);
+            Console.WriteLine(p2.Empno);
+            Console.WriteLine(p3.Empno);
+            Console.WriteLine(p4.Empno);
+            Console.WriteLine(p5.Empno);
+            Console.WriteLine("======================++");
+            Console.WriteLine(p4.Empno);
+            Console.WriteLine(p3.Empno);
+            Console.WriteLine(p2.Empno);
+            Console.WriteLine(p1.Empno);
+            Console.WriteLine(p5.Empno);
+
+
+
+
+
+
+        }
+    }
+    public class program
+    {
+        private string name;
+        private int empNo;
+        private decimal basic;
+        private short deptNo;
+        private static int count;
+        public double incomeTax = 0.5;
+        public double tax = 0.6;
+
+        public program()
+        {
+            count++;
+            this.name = " ";
+            this.empNo = count;
+        }
+        public program(string name, decimal basic, short deptNo)
+        {
+            count++;
+            this.empNo = count;
+            this.name = name;
+            this.basic = basic;
+            this.deptNo = deptNo;
+        }
+        public program(string name, decimal basic)
+        {
+            this.empNo = count;
+            this.name = name;
+            this.basic = basic;
+            this.deptNo = 0;
+        }
+        public program(string name)
+        {
+            this.empNo = count;
+            this.name = name;
+            this.basic = 0;
+            this.deptNo = 0;
+        }
+
+
+        public void GetNetSalary()
+        {
+            double salary = (double)this.Basic + ((double)this.Basic * incomeTax) - ((double)this.Basic * tax);
+            Console.WriteLine("Salary=" +salary);
+        }
+
+        public string Name
+        {
+            set
+            {
+                if (value == " " || value == null)
+                {
+                    Console.WriteLine("Enter some value");
+                }
+
+            }
+            get
+            {
+                return name;
+            }
+        }
+        public int Empno
+        {
+            get
+            {
+                return empNo;
+            }
+        }
+
+        public decimal Basic
+        {
+            set
+            {
+                if (value < 10000)
+                {
+                    basic = value;
+                }
+                else
+                {
+                    Console.WriteLine("Enter value Greater than 10000");
+                }
+            }
+            get
+            {
+                return basic;
+            }
+        }
+        public short DeptNo
+        {
+            set
+            {
+                if (value > 0)
+                {
+                    deptNo = value;
+                }
+                else
+                {
+                    Console.WriteLine("Dept No Should be greater than 0");
+                }
+            }
+            get
+            {
+                return deptNo;
+            }
+        }
+    }
+}
