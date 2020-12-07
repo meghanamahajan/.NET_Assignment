@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TwoDArray
+{
+    class Program
+    {
+        static void Main1()
+        {
+            int[,] arr = new int[5, 3];
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write("Enter marks for student number {0} and subject {1} : " , i, j);
+                  
+                    arr[i, j] = Convert.ToInt32(Console.ReadLine());
+
+                }
+            }
+            Console.WriteLine();
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.WriteLine("Marks for student number {0} and subject {1} : {2}", i, j,arr[i,j]);
+                   
+
+                }
+            }
+        }
+}
